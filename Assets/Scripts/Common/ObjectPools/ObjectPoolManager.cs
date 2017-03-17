@@ -12,5 +12,22 @@ namespace Scripts.Common.ObjectPools
             var prefab = Resources.Load(resourceName);
             return (GameObject)UnityObject.Instantiate(prefab);
         }
+
+        public GameObject CreateSingle(UnityObject prefab)
+        {
+            return (GameObject)UnityObject.Instantiate(prefab);
+        }
+
+        public GameObject CreateSingle(Transform transform, Vector3 position, Quaternion rotation, Transform parent = null)
+        {
+            var result = (GameObject)UnityObject.Instantiate(transform.gameObject);
+
+            result.transform.position = position;
+            result.transform.rotation = rotation;
+
+            result.transform.SetParent(parent);
+
+            return result;
+        }
     }
 }

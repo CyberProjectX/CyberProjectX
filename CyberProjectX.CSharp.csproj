@@ -84,7 +84,10 @@
     <Compile Include="Assets\Scripts\Client\Contexts\UserInterfaceContext.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\TimeController.cs" />
+    <Compile Include="Assets\Scripts\Client\Controllers\Weapons\BaseWeaponController.cs" />
+    <Compile Include="Assets\Scripts\Client\Controllers\Weapons\VulcanController.cs" />
     <Compile Include="Assets\Scripts\Common\Consts.cs" />
+    <Compile Include="Assets\Scripts\Common\Maybe.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\ObjectPoolManager.cs" />
     <Compile Include="Assets\TheThirdPartySources\FORGE3D\PoolManager\F3DPool.cs" />
     <Compile Include="Assets\TheThirdPartySources\FORGE3D\PoolManager\F3DPoolContainer.cs" />
