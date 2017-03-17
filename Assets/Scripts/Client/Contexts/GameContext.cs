@@ -1,16 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿namespace Scripts.Client.Contexts
+{
+    public class GameContext
+    {
+        public static GameContext Current = new GameContext();
 
-public class GameContext : MonoBehaviour {
+        public UserInterfaceContext UserInterface
+        {
+            get;
+            private set;
+        }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        public PlayerContext Player
+        {
+            get;
+            private set;
+        }
+
+        public TimeContext Time
+        {
+            get;
+            private set;
+        }
+
+        private GameContext()
+        {
+            UserInterface = new UserInterfaceContext();
+            Player = new PlayerContext();
+            Time = new TimeContext();
+        }
+    }
 }

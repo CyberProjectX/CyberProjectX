@@ -1,16 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerContext : MonoBehaviour {
+namespace Scripts.Client.Contexts
+{
+    public class PlayerContext : ChangableContext
+    {
+        private Vector3 position;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        private Quaternion rotation;
+
+        public Vector3 Position
+        {
+            get
+            {
+                return position;
+            }
+            set
+            {
+                position = value;
+                MarkAsChanged();
+            }
+        }
+
+        public Quaternion Rotation
+        {
+            get
+            {
+                return rotation;
+            }
+            set
+            {
+                rotation = value;
+                MarkAsChanged();
+            }
+        }
+    }
 }
