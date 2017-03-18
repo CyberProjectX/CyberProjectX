@@ -1,10 +1,11 @@
 ﻿using Forge3D;
+using Scripts.Client.Contexts;
 using Scripts.Common.ObjectPools;
 using UnityEngine;
 
 namespace Scripts.Client.Controllers.Weapons
 {
-    // todo: remove F3DAudioController and F3DPoolManager
+    // todo: remove F3DPoolManager
     // todo: replace ObjectPoolManager.Instance.CreateSingle to Create
     public class VulcanController : BaseWeaponController
     {
@@ -23,8 +24,8 @@ namespace Scripts.Client.Controllers.Weapons
         {
             // Spawn impact prefab at specified position
             F3DPoolManager.Pools["GeneratedPool"].Spawn(Impact.transform, position, Quaternion.identity, null);
-            // Play impact sound effect
-            F3DAudioController.instance.VulcanHit(position);
+
+            GameContext.Current.Audio.Weapon.HitVulcan(position);
         }
 
         private void FireInternal()
@@ -50,8 +51,7 @@ namespace Scripts.Client.Controllers.Weapons
             //if (ShellParticles.Length > 0)
             //    ShellParticles[curSocket].Emit(1);
 
-            // Play shot sound effect
-            F3DAudioController.instance.VulcanShot(transform.position);
+            GameContext.Current.Audio.Weapon.ShotVulcan(transform.position);
         }
     }
 }

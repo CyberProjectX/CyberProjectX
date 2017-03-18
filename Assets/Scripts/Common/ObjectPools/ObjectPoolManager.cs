@@ -18,6 +18,17 @@ namespace Scripts.Common.ObjectPools
             return (GameObject)UnityObject.Instantiate(prefab);
         }
 
+        public GameObject CreateSingle(Transform transform, Vector3 position, Transform parent = null)
+        {
+            var result = (GameObject)UnityObject.Instantiate(transform.gameObject);
+
+            result.transform.position = position;
+
+            result.transform.SetParent(parent);
+
+            return result;
+        }
+
         public GameObject CreateSingle(Transform transform, Vector3 position, Quaternion rotation, Transform parent = null)
         {
             var result = (GameObject)UnityObject.Instantiate(transform.gameObject);

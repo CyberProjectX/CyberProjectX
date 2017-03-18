@@ -77,11 +77,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Client\Contexts\AudioContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\ChangableContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\GameContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\PlayerContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\TimeContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\UserInterfaceContext.cs" />
+    <Compile Include="Assets\Scripts\Client\Controllers\Audio\AudioController.cs" />
+    <Compile Include="Assets\Scripts\Client\Controllers\Audio\WeaponAudioController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\TimeController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\BaseWeaponController.cs" />

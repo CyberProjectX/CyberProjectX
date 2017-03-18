@@ -22,11 +22,18 @@
             private set;
         }
 
+        public AudioContext Audio
+        {
+            get;
+            private set;
+        }
+
         private GameContext()
         {
             UserInterface = new UserInterfaceContext();
             Player = new PlayerContext();
             Time = new TimeContext();
+            Audio = new AudioContext();
         }
     }
 }
