@@ -12,7 +12,6 @@ namespace Scripts.Client.Controllers.Weapons
         public override void Start()
         {
             base.Start();
-            FireRate = 0.5f;
         }
 
         public override void Fire()
