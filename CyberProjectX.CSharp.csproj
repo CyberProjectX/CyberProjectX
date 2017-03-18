@@ -77,6 +77,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Client\Components\BaseComponent.cs" />
+    <Compile Include="Assets\Scripts\Client\Components\RandomRotationComponent.cs" />
+    <Compile Include="Assets\Scripts\Client\Components\RandomScaleComponent.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\AudioContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\ChangableContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\GameContext.cs" />
@@ -85,12 +88,15 @@
     <Compile Include="Assets\Scripts\Client\Contexts\UserInterfaceContext.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Audio\WeaponAudioController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\BaseController.cs" />
+    <Compile Include="Assets\Scripts\Client\Controllers\Projectiles\BaseProjectileController.cs" />
+    <Compile Include="Assets\Scripts\Client\Controllers\Projectiles\VulcanProjectileController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\TimeController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\BaseWeaponController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\VulcanController.cs" />
     <Compile Include="Assets\Scripts\Common\Consts.cs" />
     <Compile Include="Assets\Scripts\Common\Maybe.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\IObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPools\IObjectPoolCreatable.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\PrefabArrayObjectPool.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\ResouceQueueObjectPool.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\ObjectPoolManager.cs" />

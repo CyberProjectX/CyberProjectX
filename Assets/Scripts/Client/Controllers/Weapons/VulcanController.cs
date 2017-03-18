@@ -1,16 +1,17 @@
 ﻿using Forge3D;
 using Scripts.Client.Contexts;
+using Scripts.Client.Controllers.Projectiles;
+using Scripts.Common;
 using Scripts.Common.ObjectPools;
 using UnityEngine;
 
 namespace Scripts.Client.Controllers.Weapons
 {
-    // todo: remove F3DPoolManager
-    // todo: replace ObjectPoolManager.Instance.CreateSingle to Create
     public class VulcanController : BaseWeaponController
     {
         public override void Start()
         {
+            base.Start();
             FireRate = 0.5f;
         }
 
@@ -20,30 +21,27 @@ namespace Scripts.Client.Controllers.Weapons
             FireInternal();
         }
 
-        public void WeaponImpact(Vector3 position)
+        public override void MakeImpact(Vector3 position)
         {
-            // Spawn impact prefab at specified position
-            F3DPoolManager.Pools["GeneratedPool"].Spawn(Impact.transform, position, Quaternion.identity, null);
+            var impact = ObjectPoolManager.Instance.Create(Consts.Prefab.Weapons.Vulcan.Impact, Impact, position);
+            ObjectPoolManager.Instance.Return(impact, 1f);
 
             GameContext.Current.Audio.Weapon.HitVulcan(position);
         }
 
         private void FireInternal()
         {
-            // Get random rotation that offset spawned projectile
             var offset = Quaternion.Euler(Random.onUnitSphere);
 
-            var pool = F3DPoolManager.Pools["GeneratedPool"];
+            var muzzle = ObjectPoolManager.Instance.Create(Consts.Prefab.Weapons.Vulcan.Muzzle, Muzzle, transform.position, transform.rotation);
+            ObjectPoolManager.Instance.Return(muzzle, 0.05f);
 
-            // Spawn muzzle flash and projectile with the rotation offset at current socket position
-            pool.Spawn(Muzzle.transform, transform.position, transform.rotation, transform);
-            var projectileObject = ObjectPoolManager.Instance.CreateSingle(Projectile, transform.position + transform.forward, offset * transform.rotation);
-            //var projectileTransform = pool.Spawn(Projectile, transform.position + transform.forward, offset * transform.rotation, null);
-            //var projectileObject = projectileTransform.gameObject;
+            var projectileObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Weapons.Vulcan.Projectile, Projectile, transform.position + transform.forward, offset * transform.rotation);
 
-            var projectile = projectileObject.gameObject.GetComponent<F3DProjectile>();
+            var projectile = projectileObject.gameObject.GetComponent<VulcanProjectileController>();
             if (projectile)
             {
+                projectile.SetWeaponController(this);
                 projectile.SetOffset(0); // vulcanOffset = 0
             }
 

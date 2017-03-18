@@ -86,14 +86,23 @@ namespace Scripts.Common.ObjectPools
             return result;
         }
 
+        /// <summary>
+        /// Name of the game object should contain object pool name.
+        /// If name does not contains object pool name than object will be destroyed instead of returning to object pool.
+        /// </summary>
+        /// <param name="gameObject"></param>
         public void Return(GameObject gameObject)
         {
             var name = gameObject.name.Replace("(Clone)", "");
-            if (!Cache.ContainsKey(name))
+            if (Cache.ContainsKey(name))
+            {
+                Cache[name].Return(gameObject);
+            }
+            else
             {
                 UnityObject.Destroy(gameObject);
-            }
-            Cache[name].Return(gameObject);
+                Debug.Log(string.Format("GameObject {0} has been destroyed", gameObject.name));
+            }            
         }
 
         /// <summary>

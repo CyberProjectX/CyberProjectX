@@ -9,7 +9,7 @@ namespace Scripts.Client.Controllers.Weapons
         public Transform Muzzle;
         public Transform Impact;
 
-        public float FireRate = 0.5f;
+        public float FireRate;
 
         private bool isFiring;
         private float nextFire;
@@ -51,6 +51,10 @@ namespace Scripts.Client.Controllers.Weapons
         public virtual void StopFire()
         {
             isFiring = false;
+        }
+
+        public virtual void MakeImpact(Vector3 position)
+        {
         }
     }
 }
