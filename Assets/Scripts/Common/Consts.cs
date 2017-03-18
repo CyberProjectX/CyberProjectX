@@ -16,6 +16,8 @@
                 public const string Time = "Time";
 
                 public const string Audio = "Audio";
+
+                public const string AudioSource = "AudioSource";
             }
         }
     }

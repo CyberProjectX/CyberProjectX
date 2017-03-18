@@ -1,14 +1,15 @@
 ﻿using Forge3D;
 using Scripts.Client.Controllers;
+using Scripts.Common;
 using Scripts.Common.ObjectPools;
 using UnityEngine;
 
-namespace Assets.Scripts.Client.Controllers.Audio
+namespace Scripts.Client.Controllers.Audio
 {
-    // todo: rework public Transform AudioSource, return to pool after 3 sec
     public class WeaponAudioController : BaseController
     {
         public Transform AudioSource;
+        public int removeAudioSourceAfter = 3;
 
         [Header("Vulcan")]
         public AudioClip[] VulcanHit;
@@ -23,7 +24,10 @@ namespace Assets.Scripts.Client.Controllers.Audio
         {
             if (lastShotTime + VulcanShotDelay <= Time.time)
             {
-                var audioSource = ObjectPoolManager.Instance.CreateSingle(AudioSource, position).GetComponent<AudioSource>();
+                var audioSourceObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
+                ObjectPoolManager.Instance.Return(audioSourceObject, removeAudioSourceAfter);
+
+                var audioSource = audioSourceObject.GetComponent<AudioSource>();
 
                 if (audioSource != null)
                 {
@@ -43,8 +47,10 @@ namespace Assets.Scripts.Client.Controllers.Audio
         {
             if (lastHitTime + VulcanHitDelay <= Time.time)
             {
-                
-                var audioSource = ObjectPoolManager.Instance.CreateSingle(AudioSource, position).GetComponent<AudioSource>();
+                var audioSourceObject = ObjectPoolManager.Instance.CreateSingle(AudioSource, position);
+                ObjectPoolManager.Instance.Return(audioSourceObject, removeAudioSourceAfter);
+
+                var audioSource = audioSourceObject.GetComponent<AudioSource>();
                 if (audioSource != null)
                 {
                     audioSource.pitch = Random.Range(0.95f, 1f);

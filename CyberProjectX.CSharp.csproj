@@ -83,7 +83,6 @@
     <Compile Include="Assets\Scripts\Client\Contexts\PlayerContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\TimeContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\UserInterfaceContext.cs" />
-    <Compile Include="Assets\Scripts\Client\Controllers\Audio\AudioController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Audio\WeaponAudioController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\TimeController.cs" />
@@ -91,7 +90,11 @@
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\VulcanController.cs" />
     <Compile Include="Assets\Scripts\Common\Consts.cs" />
     <Compile Include="Assets\Scripts\Common\Maybe.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPools\IObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPools\PrefabArrayObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPools\ResouceQueueObjectPool.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\ObjectPoolManager.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPools\ObjectPoolType.cs" />
     <Compile Include="Assets\TheThirdPartySources\FORGE3D\PoolManager\F3DPool.cs" />
     <Compile Include="Assets\TheThirdPartySources\FORGE3D\PoolManager\F3DPoolContainer.cs" />
     <Compile Include="Assets\TheThirdPartySources\FORGE3D\PoolManager\F3DPoolManager.cs" />

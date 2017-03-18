@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Client.Controllers.Audio;
-using Scripts.Client.Controllers.Audio;
+﻿using Scripts.Client.Controllers.Audio;
 using Scripts.Common;
 using Scripts.Common.ObjectPools;
 using UnityEngine;
@@ -8,7 +7,6 @@ namespace Scripts.Client.Contexts
 {
     public class AudioContext
     {
-        private readonly AudioController audioController;
         private readonly WeaponAudioController weaponAudioController;
 
         public AudioContext()
@@ -19,8 +17,6 @@ namespace Scripts.Client.Contexts
             {
                 audioPrefab = CreateAudioPrefab();
             }
-
-            audioController = audioPrefab.GetComponent<AudioController>();
             weaponAudioController = audioPrefab.GetComponent<WeaponAudioController>();
         }
 
