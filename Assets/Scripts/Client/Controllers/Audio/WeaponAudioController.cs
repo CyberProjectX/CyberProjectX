@@ -45,7 +45,7 @@ namespace Scripts.Client.Controllers.Audio
         {
             if (lastHitTime + VulcanHitDelay <= Time.time)
             {
-                var audioSourceObject = ObjectPoolManager.Instance.CreateSingle(AudioSource, position);
+                var audioSourceObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
                 ObjectPoolManager.Instance.Return(audioSourceObject, removeAudioSourceAfter);
 
                 var audioSource = audioSourceObject.GetComponent<AudioSource>();
