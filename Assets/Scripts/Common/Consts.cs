@@ -30,6 +30,15 @@
 
                     public const string Impact = "vulcan_impact_example";
                 }
+
+                public static class SoloGun
+                {
+                    public const string Projectile = "solo_gun_flare_trail_example";
+
+                    public const string Muzzle = "solo_gun_muzzle_example";
+
+                    public const string Impact = "solo_gun_flames_01_example";
+                }
             }
         }
     }

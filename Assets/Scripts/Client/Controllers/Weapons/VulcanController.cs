@@ -9,26 +9,7 @@ namespace Scripts.Client.Controllers.Weapons
 {
     public class VulcanController : BaseWeaponController
     {
-        public override void Start()
-        {
-            base.Start();
-        }
-
         public override void Fire()
-        {
-            base.Fire();
-            FireInternal();
-        }
-
-        public override void MakeImpact(Vector3 position)
-        {
-            var impact = ObjectPoolManager.Instance.Create(Consts.Prefab.Weapons.Vulcan.Impact, Impact, position);
-            ObjectPoolManager.Instance.Return(impact, 1f);
-
-            GameContext.Current.Audio.Weapon.HitVulcan(position);
-        }
-
-        private void FireInternal()
         {
             var offset = Quaternion.Euler(Random.onUnitSphere);
 
@@ -37,11 +18,11 @@ namespace Scripts.Client.Controllers.Weapons
 
             var projectileObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Weapons.Vulcan.Projectile, Projectile, transform.position + transform.forward, offset * transform.rotation);
 
-            var projectile = projectileObject.gameObject.GetComponent<VulcanProjectileController>();
-            if (projectile)
+            var projectileController = projectileObject.gameObject.GetComponent<VulcanProjectileController>();
+            if (projectileController)
             {
-                projectile.SetWeaponController(this);
-                projectile.SetOffset(0); // vulcanOffset = 0
+                projectileController.SetWeaponController(this);
+                projectileController.SetOffset(0); // vulcanOffset = 0
             }
 
             //// Emit one bullet shell
@@ -49,6 +30,14 @@ namespace Scripts.Client.Controllers.Weapons
             //    ShellParticles[curSocket].Emit(1);
 
             GameContext.Current.Audio.Weapon.ShotVulcan(transform.position);
+        }
+
+        public override void MakeImpact(Vector3 position)
+        {
+            var impact = ObjectPoolManager.Instance.Create(Consts.Prefab.Weapons.Vulcan.Impact, Impact, position);
+            ObjectPoolManager.Instance.Return(impact, 1f);
+
+            GameContext.Current.Audio.Weapon.HitVulcan(position);
         }
     }
 }

@@ -43,10 +43,7 @@ namespace Scripts.Client.Controllers.Weapons
             isFiring = true;
         }
 
-        public virtual void Fire()
-        {
-
-        }
+        public abstract void Fire();
 
         public virtual void StopFire()
         {

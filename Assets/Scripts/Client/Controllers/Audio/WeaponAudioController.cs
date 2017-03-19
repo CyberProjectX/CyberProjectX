@@ -1,5 +1,6 @@
 ﻿using Scripts.Common;
 using Scripts.Common.ObjectPools;
+using System;
 using UnityEngine;
 
 namespace Scripts.Client.Controllers.Audio
@@ -15,6 +16,12 @@ namespace Scripts.Client.Controllers.Audio
         public float VulcanShotDelay;
         public float VulcanHitDelay;
 
+        [Header("Solo Gun")]
+        public AudioClip[] SoloGunHit;
+        public AudioClip SoloGunShot;
+        public float SoloGunShotDelay;
+        public float SoloGunHitDelay;
+
         private float lastShotTime;
         private float lastHitTime;
 
@@ -29,8 +36,8 @@ namespace Scripts.Client.Controllers.Audio
 
                 if (audioSource != null)
                 {
-                    audioSource.pitch = Random.Range(0.95f, 1f);
-                    audioSource.volume = Random.Range(0.8f, 1f);
+                    audioSource.pitch = UnityEngine.Random.Range(0.95f, 1f);
+                    audioSource.volume = UnityEngine.Random.Range(0.8f, 1f);
                     audioSource.minDistance = 5f;
                     audioSource.loop = false;
                     audioSource.clip = VulcanShot;
@@ -51,11 +58,56 @@ namespace Scripts.Client.Controllers.Audio
                 var audioSource = audioSourceObject.GetComponent<AudioSource>();
                 if (audioSource != null)
                 {
-                    audioSource.pitch = Random.Range(0.95f, 1f);
-                    audioSource.volume = Random.Range(0.6f, 1f);
+                    audioSource.pitch = UnityEngine.Random.Range(0.95f, 1f);
+                    audioSource.volume = UnityEngine.Random.Range(0.6f, 1f);
                     audioSource.minDistance = 7f;
                     audioSource.loop = false;
-                    audioSource.clip = VulcanHit[Random.Range(0, VulcanHit.Length)];
+                    audioSource.clip = VulcanHit[UnityEngine.Random.Range(0, VulcanHit.Length)];
+                    audioSource.Play();
+
+                    lastHitTime = Time.time;
+                }
+            }
+        }
+
+        public void ShotSoloGun(Vector3 position)
+        {
+            if (lastShotTime + SoloGunShotDelay <= Time.time)
+            {
+                var audioSourceObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
+                ObjectPoolManager.Instance.Return(audioSourceObject, removeAudioSourceAfter);
+
+                var audioSource = audioSourceObject.GetComponent<AudioSource>();
+
+                if (audioSource != null)
+                {
+                    audioSource.pitch = UnityEngine.Random.Range(0.95f, 1f);
+                    audioSource.volume = UnityEngine.Random.Range(0.8f, 1f);
+                    audioSource.minDistance = 30f;
+                    audioSource.loop = false;
+                    audioSource.clip = SoloGunShot;
+                    audioSource.Play();
+
+                    lastShotTime = Time.time;
+                }
+            }
+        }
+
+        public void HitSoloGun(Vector3 position)
+        {
+            if (lastHitTime + SoloGunHitDelay <= Time.time)
+            {
+                var audioSourceObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
+                ObjectPoolManager.Instance.Return(audioSourceObject, removeAudioSourceAfter);
+
+                var audioSource = audioSourceObject.GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    audioSource.pitch = UnityEngine.Random.Range(0.95f, 1f);
+                    audioSource.volume = UnityEngine.Random.Range(0.8f, 1f);
+                    audioSource.minDistance = 50f;
+                    audioSource.loop = false;
+                    audioSource.clip = SoloGunHit[UnityEngine.Random.Range(0, SoloGunHit.Length)];
                     audioSource.Play();
 
                     lastHitTime = Time.time;
