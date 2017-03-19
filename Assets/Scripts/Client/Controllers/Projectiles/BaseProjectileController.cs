@@ -10,6 +10,7 @@ namespace Scripts.Client.Controllers.Projectiles
         public LayerMask LayerMask;
         public float LifeTime = 5f;
         public float Velocity = 300f;
+        public float HitForce = 10f;
 
         public float RemoveDelay = 0f;
         public bool RemoveWithDelay = false;// can we work with RemoveDelay only?
@@ -87,6 +88,7 @@ namespace Scripts.Client.Controllers.Projectiles
             if (!isFXSpawned)
             {
                 MakeImpact(hitPoint);
+                ApplyForce(HitForce);
 
                 isFXSpawned = true;
             }
