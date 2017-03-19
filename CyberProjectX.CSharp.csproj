@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Client\Controllers\Projectiles\SoloGunProjectileController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Projectiles\VulcanProjectileController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\TimeController.cs" />
+    <Compile Include="Assets\Scripts\Client\Controllers\UserInterface\CrosshairController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\BaseWeaponController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\SoloGunController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\VulcanController.cs" />
