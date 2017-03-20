@@ -1,5 +1,4 @@
-﻿using Forge3D;
-using Scripts.Client.Contexts;
+﻿using Scripts.Client.Contexts;
 using Scripts.Client.Controllers.Projectiles;
 using Scripts.Common;
 using Scripts.Common.ObjectPools;
