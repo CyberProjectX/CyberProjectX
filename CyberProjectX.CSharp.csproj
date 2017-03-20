@@ -152,19 +152,19 @@
     <Compile Include="Assets\TheThirdPartySources\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vPickupItem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\Additive.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\AlphaBlended.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\Billboard.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\Burnout.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\Debris.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\ExhaustFlame.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\Heat.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\Holographic.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\NebulaStaticBoard.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\Projectile.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\SmokeTurbulent.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\Surface.shader" />
-    <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\Trail.shader" />
+    <None Include="Assets\Shaders\Additive.shader" />
+    <None Include="Assets\Shaders\AlphaBlended.shader" />
+    <None Include="Assets\Shaders\Billboard.shader" />
+    <None Include="Assets\Shaders\Burnout.shader" />
+    <None Include="Assets\Shaders\Debris.shader" />
+    <None Include="Assets\Shaders\ExhaustFlame.shader" />
+    <None Include="Assets\Shaders\Heat.shader" />
+    <None Include="Assets\Shaders\Holographic.shader" />
+    <None Include="Assets\Shaders\NebulaStaticBoard.shader" />
+    <None Include="Assets\Shaders\Projectile.shader" />
+    <None Include="Assets\Shaders\SmokeTurbulent.shader" />
+    <None Include="Assets\Shaders\Surface.shader" />
+    <None Include="Assets\Shaders\Trail.shader" />
     <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\WarpJump.shader" />
     <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\WarpJumpDistortion.shader" />
     <None Include="Assets\TheThirdPartySources\FORGE3D\Sci-Fi Effects\Shaders\WarpJumpTwist.shader" />
