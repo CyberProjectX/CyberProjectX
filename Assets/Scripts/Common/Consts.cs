@@ -2,11 +2,22 @@
 {
     public static class Consts
     {
+        public static class Network
+        {
+            public const string ApplicationVersion = "0.1";
+
+            public const string DefaultRoom = "DefaultRoom";
+
+            public const string PersonController = "PersonController";
+        }
+
         public static class DefaultSceneObjects
         {
             public const string Time = "Time";
 
             public const string Audio = "Audio";
+
+            public const string Camera = "3rdPersonCamera";
         }
 
         public static class Prefab
