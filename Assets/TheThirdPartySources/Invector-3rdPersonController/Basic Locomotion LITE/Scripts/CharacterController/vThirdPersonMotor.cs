@@ -33,7 +33,7 @@ namespace Invector.CharacterController
 
         [Header("--- Locomotion Setup ---")]
 
-        public LocomotionType locomotionType = LocomotionType.FreeWithStrafe;
+        public LocomotionType locomotionType = LocomotionType.OnlyStrafe;
         [Tooltip("lock the player movement")]
         public bool lockMovement;
         [Tooltip("Speed of the rotation on free directional movement")]

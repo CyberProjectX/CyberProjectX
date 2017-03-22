@@ -8,7 +8,7 @@
 
             public const string DefaultRoom = "DefaultRoom";
 
-            public const string PersonController = "PersonController";
+            public const string NetworkPersonController = "NetworkPersonController";
         }
 
         public static class DefaultSceneObjects
@@ -50,6 +50,24 @@
 
                     public const string Impact = "solo_gun_flames_01_example";
                 }
+            }
+        }
+
+        public static class AnimatorParameters
+        {
+            public static class PersonController
+            {
+                public const string IsStrafing = "IsStrafing";
+
+                public const string IsGrounded = "IsGrounded";
+
+                public const string GroundDistance = "GroundDistance";
+
+                public const string VerticalVelocity = "VerticalVelocity";
+
+                public const string InputHorizontal = "InputHorizontal";
+
+                public const string InputVertical = "InputVertical";
             }
         }
     }
