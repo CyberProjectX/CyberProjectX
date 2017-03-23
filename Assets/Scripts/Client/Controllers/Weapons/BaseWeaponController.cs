@@ -11,6 +11,8 @@ namespace Scripts.Client.Controllers.Weapons
 
         public float FireRate;
 
+        public int Damage = 25;
+
         private bool isFiring;
         private float nextFire;
 

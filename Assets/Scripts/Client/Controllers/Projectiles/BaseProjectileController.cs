@@ -2,6 +2,7 @@
 using Scripts.Common.ObjectPools;
 using UnityEngine;
 using Scripts.Client.Controllers.Weapons;
+using Scripts.Client.Components.TargetableComponents;
 
 namespace Scripts.Client.Controllers.Projectiles
 {
@@ -36,6 +37,7 @@ namespace Scripts.Client.Controllers.Projectiles
 
         public virtual void MakeImpact(RaycastHit hitPoint)
         {
+            ApplyDamage(hitPoint);
         }
 
         public virtual void Update()
@@ -150,6 +152,16 @@ namespace Scripts.Client.Controllers.Projectiles
         private void ReturnToObjectPool()
         {
             ObjectPoolManager.Instance.Return(gameObject);
+        }
+
+        private void ApplyDamage(RaycastHit hitPoint)
+        {
+            var healthComponent = hitPoint.transform.GetComponent<HealthComponent>();
+
+            if(healthComponent != null)
+            {
+                healthComponent.TakeDamage(WeaponController.Damage);
+            }
         }
     }
 }
