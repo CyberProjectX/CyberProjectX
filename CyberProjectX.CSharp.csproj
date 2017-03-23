@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.2f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -124,8 +126,14 @@
     <Compile Include="Assets\Scripts\Common\ObjectPools\ObjectPoolType.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\PrefabArrayObjectPool.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\ResouceQueueObjectPool.cs" />
-    <Compile Include="Assets\Scripts\Network\NetworkConnector.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkPersonController.cs" />
+    <Compile Include="Assets\Scripts\Network\SyncStrategies\AnimatorLerpStrategy.cs" />
+    <Compile Include="Assets\Scripts\Network\SyncStrategies\TransformInterStrategy.cs" />
+    <Compile Include="Assets\Scripts\Network\SyncStrategies\ISyncStrategy.cs" />
+    <Compile Include="Assets\Scripts\Network\SyncStrategies\TransformLerpStrategy.cs" />
+    <Compile Include="Assets\Scripts\Network\SyncStrategies\TransformLertWithFractionStrategy.cs" />
+    <Compile Include="Assets\Scripts\Network\NetworkConnector.cs" />
+    <Compile Include="Assets\Scripts\Network\SyncStrategies\SyncType.cs" />
     <Compile Include="Assets\TheThirdPartySources\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Camera\v3rdPersonCamera.cs" />
     <Compile Include="Assets\TheThirdPartySources\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonAnimator.cs" />
     <Compile Include="Assets\TheThirdPartySources\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonController.cs" />

@@ -1,21 +1,43 @@
-﻿using Invector.CharacterController;
-using Scripts.Common;
+﻿using Scripts.Common;
+using Scripts.Network.SyncStrategies;
+using System;
 using UnityEngine;
 
 namespace Scripts.Network
 {
-    //todo: use interpolation from CubeInter.cs
     public class NetworkPersonController : Photon.MonoBehaviour
-    {
-        private Vector3 nextPosition;
-        private Quaternion nextRotation;
+    {       
+        private ISyncStrategy[] strategies;
 
         private Animator animator;
 
+        public SyncType SyncType = SyncType.Inter;
+
         void Start()
         {
-            nextPosition = transform.position;
-            nextRotation = transform.rotation;            
+            if (animator == null)
+            {
+                animator = GetComponent<Animator>();
+            }
+
+            strategies = new ISyncStrategy[2];
+
+            switch (SyncType)
+            {
+                case SyncType.Lerp:
+                    strategies[0] = new TransformLerpStrategy(transform);
+                    break;
+                case SyncType.LerpWithFraction:
+                    strategies[0] = new TransformLertWithFractionStrategy(transform);
+                    break;
+                case SyncType.Inter:
+                    strategies[0] = new TransformInterStrategy(transform);
+                    break;
+                default:
+                    throw new NotSupportedException();
+            }
+
+            strategies[1] = new AnimatorLerpStrategy(animator);
         }
 
         void Update()
@@ -25,16 +47,14 @@ namespace Scripts.Network
                 return;
             }
 
-            transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime * 20);
-            transform.rotation = Quaternion.Slerp(transform.rotation, nextRotation, Time.deltaTime * 20);
+            foreach(var strategy in strategies)
+            {
+                strategy.SyncData();
+            }
         }
 
         void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo messsageInfo)
-        {
-            if(animator == null)
-            {
-                animator = GetComponent<Animator>();
-            }
+        {            
 
             if (stream.isWriting)
             {
@@ -43,8 +63,10 @@ namespace Scripts.Network
             }
             else if (stream.isReading)
             {
-                ReceiveTransform(stream);
-                ReceiveAnimator(stream);
+                foreach (var strategy in strategies)
+                {
+                    strategy.ReceiveData(stream, messsageInfo);
+                }                
             }
         }
 
@@ -75,39 +97,6 @@ namespace Scripts.Network
 
             var inputVertical = animator.GetFloat(Consts.AnimatorParameters.PersonController.InputVertical);
             stream.Serialize(ref inputVertical);
-        }
-
-        private void ReceiveTransform(PhotonStream stream)
-        {
-            nextPosition = (Vector3)stream.ReceiveNext();
-            nextRotation = (Quaternion)stream.ReceiveNext();
-        }
-
-        private void ReceiveAnimator(PhotonStream stream)
-        {
-            var isStrafing = false;
-            stream.Serialize(ref isStrafing);
-            animator.SetBool(Consts.AnimatorParameters.PersonController.IsStrafing, isStrafing);
-
-            var isGrounded = false;
-            stream.Serialize(ref isGrounded);
-            animator.SetBool(Consts.AnimatorParameters.PersonController.IsGrounded, isGrounded);
-
-            var groundDistance = 0f;
-            stream.Serialize(ref groundDistance);
-            animator.SetFloat(Consts.AnimatorParameters.PersonController.GroundDistance, groundDistance);
-
-            var verticalVelocity = 0f;
-            stream.Serialize(ref verticalVelocity);
-            animator.SetFloat(Consts.AnimatorParameters.PersonController.VerticalVelocity, verticalVelocity);
-
-            var inputHorizontal = 0f;
-            stream.Serialize(ref inputHorizontal);
-            animator.SetFloat(Consts.AnimatorParameters.PersonController.InputHorizontal, inputHorizontal);
-
-            var inputVertical = 0f;
-            stream.Serialize(ref inputVertical);
-            animator.SetFloat(Consts.AnimatorParameters.PersonController.InputVertical, inputVertical);
         }
     }
 }
