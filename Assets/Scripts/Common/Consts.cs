@@ -22,6 +22,12 @@
             public const string Camera = "3rdPersonCamera";
 
             public const string Network = "Network";
+
+            public const string UserInterface = "UserInterface";
+
+            public const string Console = "Console";
+
+            public const string Log = "Log";
         }
 
         public static class Prefab
@@ -34,7 +40,22 @@
 
                 public const string Network = "Network";
 
+                public const string UserInterface = "UserInterface";
+
                 public const string AudioSource = "AudioSource";
+
+                public const string Text = "Text";
+
+                public const string Log = "Log";
+            }
+
+            public static class UserInterface
+            {
+                public const string Console = "Console";
+
+                public const string ConsoleOutput = "ConsoleOutput";
+
+                public const string ConsoleInput = "ConsoleInput";
             }
 
             public static class Weapons

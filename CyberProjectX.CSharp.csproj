@@ -90,14 +90,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Client\Components\BaseComponent.cs" />
+    <Compile Include="Assets\Scripts\Client\Components\RandomRotationComponent.cs" />
+    <Compile Include="Assets\Scripts\Client\Components\RandomScaleComponent.cs" />
     <Compile Include="Assets\Scripts\Client\Components\TargetableComponents\BaseDieComponent.cs" />
     <Compile Include="Assets\Scripts\Client\Components\TargetableComponents\DestroyOnDieComponent.cs" />
     <Compile Include="Assets\Scripts\Client\Components\TargetableComponents\HealthComponent.cs" />
-    <Compile Include="Assets\Scripts\Client\Components\RandomRotationComponent.cs" />
-    <Compile Include="Assets\Scripts\Client\Components\RandomScaleComponent.cs" />
     <Compile Include="Assets\Scripts\Client\Components\TargetableComponents\NetworkDestroyOnDieComponent.cs" />
+    <Compile Include="Assets\Scripts\Client\Components\UserInterface\ReadOnlyInputFieldComponent.cs" />
+    <Compile Include="Assets\Scripts\Client\Components\UserInterface\TextPopUpComponent.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\AudioContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\ChangableContext.cs" />
+    <Compile Include="Assets\Scripts\Client\Contexts\ConsoleContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\GameContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\NetworkContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\PlayerContext.cs" />
@@ -110,10 +113,12 @@
     <Compile Include="Assets\Scripts\Client\Controllers\Projectiles\VulcanProjectileController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\TimeController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\UserInterface\CrosshairController.cs" />
+    <Compile Include="Assets\Scripts\Client\Controllers\UserInterface\UserInterfaceController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\BaseWeaponController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\SoloGunController.cs" />
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\VulcanController.cs" />
     <Compile Include="Assets\Scripts\Common\Consts.cs" />
+    <Compile Include="Assets\Scripts\Common\Log.cs" />
     <Compile Include="Assets\Scripts\Common\Maybe.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\ArrayObjectPool.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\IObjectPool.cs" />
@@ -317,6 +322,5 @@
     <None Include="Assets\TheThirdPartySources\Photon Unity Networking\link.xml" />
     <None Include="Assets\TheThirdPartySources\Photon Unity Networking\readme.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

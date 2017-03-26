@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Common;
+using System;
 using UnityEngine;
 
 namespace Scripts.Network.SyncStrategies
@@ -56,7 +57,7 @@ namespace Scripts.Network.SyncStrategies
             {
                 if (bufferedState[i].Timestamp < bufferedState[i + 1].Timestamp)
                 {
-                    Debug.Log("State inconsistent");
+                    Log.Info("State inconsistent");
                 }
             }
         }
@@ -100,7 +101,7 @@ namespace Scripts.Network.SyncStrategies
                 // If our interpolation time catched up with the time of the latest update:
                 // Simply move to the latest known position.
 
-                //Debug.Log("Lerping!");
+                //Log.Info("Lerping!");
                 State latest = bufferedState[0];
 
                 transform.position = Vector3.Lerp(transform.position, latest.Position, Time.deltaTime * 20);

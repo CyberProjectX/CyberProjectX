@@ -51,7 +51,7 @@ namespace Scripts.Common.ObjectPools
             //else
             //{
             //    PhotonNetwork.Destroy(gameObject);
-            //    Debug.Log(string.Format("GameObject {0} has been destroyed", gameObject.name));
+            //    Log.Info(string.Format("GameObject {0} has been destroyed", gameObject.name));
             //}
 
             

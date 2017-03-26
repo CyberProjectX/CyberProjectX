@@ -26,7 +26,7 @@ namespace Scripts.Client.Contexts
         {
             if (timeController == null)
             {
-                Debug.LogError("TimeController is null");
+                Log.Error("TimeController is null");
                 return;
             }
 
