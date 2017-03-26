@@ -30,7 +30,7 @@ namespace Scripts.Client.Contexts
 
         private GameObject CreateAudioPrefab()
         {
-            return ObjectPoolManager.Instance.CreateSingle(Consts.Prefab.Common.Audio);
+            return ObjectPoolManager.Local.CreateSingle(Consts.Prefab.Common.Audio);
         }
     }
 }

@@ -5,10 +5,6 @@ namespace Scripts.Client.Controllers.Weapons
     // todo: remove KeyCode.Mouse0
     public abstract class BaseWeaponController : BaseController
     {
-        public Transform Projectile;
-        public Transform Muzzle;
-        public Transform Impact;
-
         public float FireRate;
 
         public int Damage = 25;

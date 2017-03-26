@@ -1,5 +1,6 @@
 ﻿using Invector.CharacterController;
 using Scripts.Common;
+using Scripts.Common.ObjectPools;
 using UnityEngine;
 
 namespace Scritps.Network
@@ -34,7 +35,8 @@ namespace Scritps.Network
         void OnJoinedRoom()
         {
             Debug.Log("Instantiating...");
-            var person = PhotonNetwork.Instantiate(Consts.Network.NetworkPersonController, new Vector3(25, 0, 30), Quaternion.identity, 0);
+            var person = ObjectPoolManager.Network.CreateSingle(Consts.Network.NetworkPersonController, new Vector3(25, 0, 30), Quaternion.identity);
+            //var person = PhotonNetwork.Instantiate(Consts.Network.NetworkPersonController, new Vector3(25, 0, 30), Quaternion.identity, Consts.Network.DefaultGroup);
 
             //var cameraObject = GameObject.Find(Consts.DefaultSceneObjects.Camera);
             //var camera = cameraObject.GetComponent<v3rdPersonCamera>();

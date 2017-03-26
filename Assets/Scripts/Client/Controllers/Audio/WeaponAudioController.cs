@@ -29,8 +29,8 @@ namespace Scripts.Client.Controllers.Audio
         {
             if (lastShotTime + VulcanShotDelay <= Time.time)
             {
-                var audioSourceObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
-                ObjectPoolManager.Instance.Return(audioSourceObject, removeAudioSourceAfter);
+                var audioSourceObject = ObjectPoolManager.Local.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
+                ObjectPoolManager.Local.Return(audioSourceObject, removeAudioSourceAfter);
 
                 var audioSource = audioSourceObject.GetComponent<AudioSource>();
 
@@ -52,8 +52,8 @@ namespace Scripts.Client.Controllers.Audio
         {
             if (lastHitTime + VulcanHitDelay <= Time.time)
             {
-                var audioSourceObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
-                ObjectPoolManager.Instance.Return(audioSourceObject, removeAudioSourceAfter);
+                var audioSourceObject = ObjectPoolManager.Local.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
+                ObjectPoolManager.Local.Return(audioSourceObject, removeAudioSourceAfter);
 
                 var audioSource = audioSourceObject.GetComponent<AudioSource>();
                 if (audioSource != null)
@@ -74,8 +74,8 @@ namespace Scripts.Client.Controllers.Audio
         {
             if (lastShotTime + SoloGunShotDelay <= Time.time)
             {
-                var audioSourceObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
-                ObjectPoolManager.Instance.Return(audioSourceObject, removeAudioSourceAfter);
+                var audioSourceObject = ObjectPoolManager.Local.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
+                ObjectPoolManager.Local.Return(audioSourceObject, removeAudioSourceAfter);
 
                 var audioSource = audioSourceObject.GetComponent<AudioSource>();
 
@@ -97,8 +97,8 @@ namespace Scripts.Client.Controllers.Audio
         {
             if (lastHitTime + SoloGunHitDelay <= Time.time)
             {
-                var audioSourceObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
-                ObjectPoolManager.Instance.Return(audioSourceObject, removeAudioSourceAfter);
+                var audioSourceObject = ObjectPoolManager.Local.Create(Consts.Prefab.Common.AudioSource, AudioSource, position);
+                ObjectPoolManager.Local.Return(audioSourceObject, removeAudioSourceAfter);
 
                 var audioSource = audioSourceObject.GetComponent<AudioSource>();
                 if (audioSource != null)

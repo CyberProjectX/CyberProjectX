@@ -7,7 +7,8 @@ namespace Scripts.Client.Controllers.Projectiles
         public override void MakeImpact(RaycastHit hitPoint)
         {
             base.MakeImpact(hitPoint);
-            WeaponController.MakeImpact(hitPoint.point + hitPoint.normal * FxOffset);            
+
+            WeaponController.MakeImpact(hitPoint.point + hitPoint.normal * FxOffset);
         }
     }
 }

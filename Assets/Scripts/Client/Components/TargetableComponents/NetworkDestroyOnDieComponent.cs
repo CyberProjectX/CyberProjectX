@@ -1,10 +1,23 @@
-﻿namespace Scripts.Client.Components.TargetableComponents
+﻿using Scripts.Common.ObjectPools;
+
+namespace Scripts.Client.Components.TargetableComponents
 {
     public class NetworkDestroyOnDieComponent : BaseDieComponent
-    {
+    {        
         public override void OnDie()
         {
-            PhotonNetwork.Destroy(gameObject);
+            var photonView = GetComponent<PhotonView>();
+
+            if(photonView != null)
+            {
+                photonView.RPC("Destroy", PhotonTargets.MasterClient, null);
+            }            
+        }
+
+        [PunRPC]
+        protected void Destroy()
+        {
+            ObjectPoolManager.Network.Return(gameObject);
         }
     }
 }

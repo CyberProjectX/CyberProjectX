@@ -8,7 +8,9 @@ namespace Scripts.Common.ObjectPools
 {
     public class ObjectPoolManager
     {
-        public static ObjectPoolManager Instance = new ObjectPoolManager();
+        public static ObjectPoolManager Local = new ObjectPoolManager();
+
+        public static NetworkObjectPoolManager Network = new NetworkObjectPoolManager();
 
         public static int IncreaseBatchSize = 10;
 
@@ -51,12 +53,27 @@ namespace Scripts.Common.ObjectPools
 
         public GameObject Create(string resourceName)
         {
+            return Create(resourceName, Vector3.zero, Quaternion.identity);
+        }
+
+        public GameObject Create(string resourceName, Vector3 position)
+        {
+            return Create(resourceName, position, Quaternion.identity);
+        }
+
+        public GameObject Create(string resourceName, Vector3 position, Quaternion rotation)
+        {
             if (!Cache.ContainsKey(resourceName))
             {
-                Cache.Add(resourceName, new ResouceQueueObjectPool(InitialSize, resourceName));
+                Cache.Add(resourceName, ResouceQueueObjectPool.Create(InitialSize, resourceName));
             }
 
-            return Cache[resourceName].Get();
+            var result =  Cache[resourceName].Get();
+
+            result.transform.position = position;
+            result.transform.rotation = rotation;
+
+            return result;
         }
 
         public GameObject Create(string poolName, Transform prefab)
@@ -73,7 +90,7 @@ namespace Scripts.Common.ObjectPools
         {
             if (!Cache.ContainsKey(poolName))
             {
-                Cache.Add(poolName, new PrefabArrayObjectPool(InitialSize, prefab));
+                Cache.Add(poolName, PrefabArrayObjectPool.Create(InitialSize, prefab));
             }
 
             var result = Cache[poolName].Get();

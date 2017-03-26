@@ -28,12 +28,19 @@
             private set;
         }
 
+        public NetworkContext Network
+        {
+            get;
+            private set;
+        }
+
         private GameContext()
         {
             UserInterface = new UserInterfaceContext();
             Player = new PlayerContext();
             Time = new TimeContext();
             Audio = new AudioContext();
+            Network = new NetworkContext();
         }
     }
 }

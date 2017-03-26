@@ -12,10 +12,10 @@ namespace Scripts.Client.Controllers.Weapons
         {
             var offset = Quaternion.Euler(Random.onUnitSphere);
 
-            var muzzle = ObjectPoolManager.Instance.Create(Consts.Prefab.Weapons.Vulcan.Muzzle, Muzzle, transform.position, transform.rotation);
-            ObjectPoolManager.Instance.Return(muzzle, 0.05f);
+            var muzzle = ObjectPoolManager.Local.Create(Consts.Prefab.Weapons.Vulcan.Muzzle, transform.position, transform.rotation);
+            ObjectPoolManager.Local.Return(muzzle, 0.05f);
 
-            var projectileObject = ObjectPoolManager.Instance.Create(Consts.Prefab.Weapons.Vulcan.Projectile, Projectile, transform.position + transform.forward, offset * transform.rotation);
+            var projectileObject = ObjectPoolManager.Local.Create(Consts.Prefab.Weapons.Vulcan.Projectile, transform.position + transform.forward, offset * transform.rotation);
 
             var projectileController = projectileObject.gameObject.GetComponent<VulcanProjectileController>();
             if (projectileController)
@@ -33,8 +33,8 @@ namespace Scripts.Client.Controllers.Weapons
 
         public override void MakeImpact(Vector3 position)
         {
-            var impact = ObjectPoolManager.Instance.Create(Consts.Prefab.Weapons.Vulcan.Impact, Impact, position);
-            ObjectPoolManager.Instance.Return(impact, 1f);
+            var impact = ObjectPoolManager.Local.Create(Consts.Prefab.Weapons.Vulcan.Impact, position);
+            ObjectPoolManager.Local.Return(impact, 1f);
 
             GameContext.Current.Audio.Weapon.HitVulcan(position);
         }

@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\Client\Contexts\AudioContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\ChangableContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\GameContext.cs" />
+    <Compile Include="Assets\Scripts\Client\Contexts\NetworkContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\PlayerContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\TimeContext.cs" />
     <Compile Include="Assets\Scripts\Client\Contexts\UserInterfaceContext.cs" />
@@ -114,13 +115,18 @@
     <Compile Include="Assets\Scripts\Client\Controllers\Weapons\VulcanController.cs" />
     <Compile Include="Assets\Scripts\Common\Consts.cs" />
     <Compile Include="Assets\Scripts\Common\Maybe.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPools\ArrayObjectPool.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\IObjectPool.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\IObjectPoolCreatable.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPools\NetworkArrayObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPools\NetworkObjectPoolManager.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\ObjectPoolManager.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\ObjectPoolType.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\PrefabArrayObjectPool.cs" />
     <Compile Include="Assets\Scripts\Common\ObjectPools\ResouceQueueObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPools\ResourceArrayObjectPool.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkConnector.cs" />
+    <Compile Include="Assets\Scripts\Network\NetworkCubeController.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkPersonController.cs" />
     <Compile Include="Assets\Scripts\Network\SyncStrategies\AnimatorLerpStrategy.cs" />
     <Compile Include="Assets\Scripts\Network\SyncStrategies\ISyncStrategy.cs" />

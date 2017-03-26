@@ -4,7 +4,8 @@ using System;
 using UnityEngine;
 
 namespace Scripts.Network
-{
+{   
+
     public class NetworkPersonController : Photon.MonoBehaviour
     {       
         private ISyncStrategy[] strategies;

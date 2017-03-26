@@ -151,7 +151,7 @@ namespace Scripts.Client.Controllers.Projectiles
 
         private void ReturnToObjectPool()
         {
-            ObjectPoolManager.Instance.Return(gameObject);
+            ObjectPoolManager.Local.Return(gameObject);
         }
 
         private void ApplyDamage(RaycastHit hitPoint)

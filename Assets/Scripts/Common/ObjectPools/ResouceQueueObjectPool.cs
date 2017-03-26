@@ -13,6 +13,13 @@ namespace Scripts.Common.ObjectPools
 
         protected Queue<GameObject> Queue;
 
+        protected ResouceQueueObjectPool(string resourceName, ObjectPoolType poolType = ObjectPoolType.IncreaseByOne)
+        {
+            ObjectPoolType = poolType;
+            IncreaseBatchSize = ObjectPoolManager.IncreaseBatchSize;           
+            this.resourceName = resourceName;            
+        }
+
         public int FreeObjectsCount
         {
             get
@@ -47,14 +54,11 @@ namespace Scripts.Common.ObjectPools
             set;
         }
 
-        public ResouceQueueObjectPool(int capacity, string resourceName, ObjectPoolType poolType = ObjectPoolType.IncreaseByOne)
+        public static ResouceQueueObjectPool Create(int capacity, string resourceName, ObjectPoolType poolType = ObjectPoolType.IncreaseByOne)
         {
-            ObjectPoolType = poolType;
-            IncreaseBatchSize = ObjectPoolManager.IncreaseBatchSize;
-            TotalObjectsCount = capacity;
-            Queue = new Queue<GameObject>(capacity);
-            this.resourceName = resourceName;
-            InitializeObjects(capacity);
+            var pool = new ResouceQueueObjectPool(resourceName, poolType);
+            pool.Initialize(capacity);
+            return pool;
         }
 
         public GameObject Get()
@@ -73,6 +77,13 @@ namespace Scripts.Common.ObjectPools
         {
             gameObject.SetActive(false);
             Queue.Enqueue(gameObject);
+        }
+
+        protected void Initialize(int capacity)
+        {
+            TotalObjectsCount = capacity;
+            Queue = new Queue<GameObject>(capacity);
+            InitializeObjects(capacity);
         }
 
         private void IncreaseSize()

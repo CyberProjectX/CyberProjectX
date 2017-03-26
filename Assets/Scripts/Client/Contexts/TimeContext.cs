@@ -35,7 +35,7 @@ namespace Scripts.Client.Contexts
 
         private GameObject CreateTimePrefab()
         {
-            return ObjectPoolManager.Instance.CreateSingle(Consts.Prefab.Common.Time);
+            return ObjectPoolManager.Local.CreateSingle(Consts.Prefab.Common.Time);
         }
     }
 }

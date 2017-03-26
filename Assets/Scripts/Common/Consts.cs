@@ -9,6 +9,8 @@
             public const string DefaultRoom = "DefaultRoom";
 
             public const string NetworkPersonController = "NetworkPersonController";
+
+            public const int DefaultGroup = 0;
         }
 
         public static class DefaultSceneObjects
@@ -18,6 +20,8 @@
             public const string Audio = "Audio";
 
             public const string Camera = "3rdPersonCamera";
+
+            public const string Network = "Network";
         }
 
         public static class Prefab
@@ -27,6 +31,8 @@
                 public const string Time = "Time";
 
                 public const string Audio = "Audio";
+
+                public const string Network = "Network";
 
                 public const string AudioSource = "AudioSource";
             }
